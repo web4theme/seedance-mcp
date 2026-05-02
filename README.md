@@ -25,6 +25,37 @@
 
 ---
 
+## 给本地 Agent 的快速接入提示词
+
+如果你正在使用 Codex、Claude Desktop、Cursor 或其他支持 MCP 的本地 Agent，可以直接把本仓库链接发给它，并让它阅读这一段。
+
+```text
+你是一个本地开发 Agent。请帮我把这个仓库提供的 seedance-2-mcp 接入到当前 MCP 客户端中。
+
+目标：
+1. 读取仓库 README，理解这是一个 stdio MCP server，用于调用火山方舟 Seedance 2.0 视频生成 API。
+2. 优先使用 npx 方式接入：command = "npx"，args = ["-y", "seedance-2-mcp"]。
+3. 如果 npm 包暂不可用，或我明确想从源码运行，请 clone 本仓库，执行 npm install && npm run build，并将 MCP command 配为 "node"，args 配为 ["<仓库绝对路径>/dist/index.js"]。
+4. 只向我索要或确认 ARK_API_KEY，不要把真实 API Key 写进仓库、README、示例文件或 git。
+5. 根据我当前使用的客户端自动修改对应 MCP 配置：
+   - Codex：修改 ~/.codex/config.toml
+   - Claude Desktop：修改 claude_desktop_config.json
+   - Cursor 或其他客户端：使用它们支持的 stdio MCP 配置格式
+6. 配置完成后，提醒我重启或刷新 MCP 客户端，然后先调用 seedance_usage_guide，再按 create -> wait -> check 的流程生成视频。
+7. 如果本机没有 Node.js >= 18 或 npx 不可用，请先指出缺失项，并给出最小安装建议。
+
+重要约束：
+- stdout 是 MCP JSON-RPC 通道，不要让 server 在 stdout 打调试日志。
+- ARK_API_KEY 只能放在 MCP 客户端 env 配置或本机环境变量里。
+- 生成的 video_url 通常会过期，任务成功后应提示我尽快下载。
+```
+
+你也可以直接对 Agent 说：
+
+> 阅读这个仓库并按 README 里的“给本地 Agent 的快速接入提示词”帮我配置 Seedance MCP。我会提供 `ARK_API_KEY`。
+
+---
+
 ## 安装
 
 ### 1. 通过 `npx`（推荐 - 无需手动安装）

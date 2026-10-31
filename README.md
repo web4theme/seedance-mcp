@@ -3,6 +3,8 @@
 [![npm version](https://img.shields.io/npm/v/seedance-2-mcp.svg)](https://www.npmjs.com/package/seedance-2-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+> **English**: [README.en.md](README.en.md)
+
 一个开源、本地运行的 **MCP (Model Context Protocol) 服务器**，把火山方舟 (Volcengine ARK)
 **Seedance 2.5 / Seedance 2.0 系列** 视频生成能力以三个 stdio 工具的形式暴露给 Codex、
 Claude Desktop、Cursor 等任意 MCP 客户端。
